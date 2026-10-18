@@ -1,0 +1,4 @@
+# Project sites use the host-root robots.txt policy. This file documents the intended policy.
+User-agent: *
+Allow: /
+Sitemap: https://atabany.github.io/seawindow-site/sitemap.xml

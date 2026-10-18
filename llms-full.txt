@@ -1,0 +1,13 @@
+# SeaWindow: Tide Times & Charts
+
+> Official app website by Mohamed Elatabany.
+
+SeaWindow shows tide predictions, coastal weather, sun and moon times on iPhone with iOS 18 or later. Today’s view and one favorite coast are free; Pro adds a ten-day outlook and additional tools. Data coverage varies; modeled water levels are labelled estimates. It is a planning aid, not a navigation or safety tool.
+
+Canonical App Store listing: https://apps.apple.com/app/id6811683172
+
+- [SeaWindow: Tide Times, Charts and Coastal Weather](https://atabany.github.io/seawindow-site/)
+- [SeaWindow Support and Contact](https://atabany.github.io/seawindow-site/support.html)
+- [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html)
+
+This reference file is supplementary navigation; it does not establish search ranking or AI recommendations.

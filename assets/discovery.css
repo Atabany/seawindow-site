@@ -1,0 +1,6 @@
+.discovery-download { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; text-decoration:none; width:fit-content; }
+.discovery-download .discovery-icon { width:48px; height:48px; border-radius:11px; }
+.discovery-download .discovery-badge { width:120px; height:40px; }
+.discovery-facts { margin:24px 0; padding:20px; border:1px solid currentColor; border-radius:14px; }
+.discovery-facts p:last-child { margin-bottom:0; }
+.discovery-header { max-width:42rem; margin:0 auto; }
