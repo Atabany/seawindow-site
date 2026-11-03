@@ -1,0 +1,30 @@
+/* Guide pages: article layout on top of styles.css. */
+.byline{font-size:15px;color:var(--muted);margin:-6px 0 26px}
+.answer{font-size:19px;border-left:4px solid var(--accent);padding:4px 0 4px 18px;margin:0 0 26px}
+.toc{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:16px 22px;margin:26px 0;font-size:16px}
+.toc p{margin:0 0 6px;font-weight:700}
+.toc ol{margin:0;padding-left:22px}
+.toc li{margin:4px 0}
+h3{font-size:19px;line-height:1.35;margin:28px 0 8px}
+figure{margin:26px 0}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.tide-svg{display:block;width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.tide-svg .grid{stroke:var(--line);stroke-width:1}
+.tide-svg .msl{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:5 5}
+.tide-svg .curve{fill:none;stroke:var(--accent);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.tide-svg text{fill:var(--muted);font:13px system-ui,-apple-system,sans-serif}
+.tide-svg .event{fill:var(--ink);font-weight:650}
+.tide-svg .hi{fill:#d9822b}
+.tide-svg .lo{fill:var(--accent)}
+.table-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+ol.steps li{margin:10px 0}
+.guide-cta{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:22px 26px;margin:34px 0}
+.guide-cta h2{margin-top:0}
+.guide-cta .discovery-download{margin-bottom:0}
+.sources{font-size:15px}
+.sources li{overflow-wrap:anywhere}
+@media(max-width:480px){.answer{font-size:18px}.toc{padding:14px 18px}table{font-size:14px}th,td{padding:9px 8px}th{font-size:12px;letter-spacing:.3px}.tide-svg text{font-size:20px}}

@@ -9,5 +9,14 @@ Canonical App Store listing: https://apps.apple.com/app/id6811683172
 - [SeaWindow: Tide Times, Charts and Coastal Weather](https://atabany.github.io/seawindow-site/)
 - [SeaWindow Support and Contact](https://atabany.github.io/seawindow-site/support.html)
 - [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html)
+- [How to Read a Tide Chart: Highs, Lows and Datum](https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html)
 
 This reference file is supplementary navigation; it does not establish search ranking or AI recommendations.
+
+## Guides
+
+### How to read a tide chart
+
+https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html (updated 2026-11-04)
+
+A tide chart is a curve of predicted water height over time: peaks are high tides, dips are low tides, and every height is measured from a datum (MLLW at NOAA stations in the US). Worked example: NOAA station 9414290, San Francisco (Golden Gate), 5 November 2026: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM (MLLW); mean sea level is 3.12 ft above MLLW there. In SeaWindow the Today tab’s Tides card shows the water level now, Rising or Falling, the next high and low, the station, its distance, the provider and, under “Tide table & source”, the datum. Predictions exclude weather; SeaWindow is a planning aid, not a navigation or safety tool.

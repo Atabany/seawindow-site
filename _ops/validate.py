@@ -30,7 +30,8 @@ class Page(HTMLParser):
             if a['id'] in self.ids:
                 errors.append('Duplicate ID: ' + a['id'])
             self.ids.add(a['id'])
-        if tag == 'title':
+        if tag == 'title' and not self.title:
+            # Only the document title; inline SVG <title> elements are accessible names.
             self.in_title = True
         if tag == 'h1':
             self.h1 += 1
@@ -77,6 +78,7 @@ if urls != expected:
     errors.append('Sitemap differs from published pages')
 if len({p.title for p in pages.values()}) != len(pages):
     errors.append('Duplicate titles')
+campaigns = {}
 for name, p in pages.items():
     def require(ok, message):
         if not ok:
@@ -95,7 +97,8 @@ for name, p in pages.items():
                 installs += 1
                 q = parse_qs(u.query)
                 require(str(C['appId']) in u.path, 'wrong App Store destination')
-                require(q.get('pt') == ['127826363'] and q.get('mt') == ['8'] and 0 < len(q.get('ct', [''])[0]) <= 40, 'invalid campaign')
+                require(q.get('pt') == ['127826363'] and q.get('mt') == ['8'] and 0 < len(q.get('ct', [''])[0]) <= 30, 'invalid campaign')
+                campaigns.setdefault(q.get('ct', [''])[0], set()).add(name)
             continue
         target = unquote(u.path) or name
         if target.startswith('/'):
@@ -108,6 +111,44 @@ for name, p in pages.items():
     for img in p.images:
         require(all(x in img for x in ['width', 'height', 'alt']), 'image missing dimensions/alt')
     require(C['base'] + ('' if name == 'index.html' else name) in (ROOT / 'llms.txt').read_text(), 'missing reference coverage')
+for tag, names in campaigns.items():
+    if len(names) > 1:
+        errors.append('Campaign tag reused across pages: ' + tag)
+
+# Guides: hand-written pages listed in discovery.json.
+import html as _html, re as _re
+text_of = lambda x: _html.unescape(_re.sub(r'<[^>]+>', ' ', x))
+for g in C.get('guides', []):
+    name = g['file']
+    def require(ok, message):
+        if not ok:
+            errors.append(name + ': ' + message)
+    if name not in pages:
+        errors.append('Guide missing: ' + name)
+        continue
+    raw = (ROOT / name).read_text()
+    p = pages[name]
+    types = {x.get('@type') for x in p.schema}
+    require({'Article', 'BreadcrumbList'} <= types, 'needs Article and BreadcrumbList schema')
+    visible = _re.findall(r'<h3>(.*?)</h3>', _re.search(r'<h2 id="faq">.*?(?=<aside|$)', raw, _re.S)[0], _re.S) if 'id="faq"' in raw else []
+    faq = next((x for x in p.schema if x.get('@type') == 'FAQPage'), None)
+    require((faq is None and not visible) or (faq and [q['name'] for q in faq['mainEntity']] == [text_of(v).strip() for v in visible]), 'FAQ schema must match visible questions')
+    for q in (faq or {}).get('mainEntity', []):
+        require(q['acceptedAnswer']['text'] in text_of(raw), 'FAQ answer not visible: ' + q['name'])
+    require(p.title == g['title'], 'title not from discovery.json')
+    require(_re.search(r'Updated \d{1,2} \w+ 20\d\d', raw) is not None, 'needs visible Updated date')
+    require('href="support.html">Mohamed Elatabany</a>' in raw, 'needs author byline link')
+    require('mailto:' in raw, 'needs correction contact')
+    require(campaigns.get(g['campaign']) == {name}, 'campaign tag missing or reused: ' + g['campaign'])
+    require(raw.count('<!-- discovery-cta-slot -->') >= 1 and 'app-store-badge.svg' in raw and 'discovery-icon.png' in raw, 'needs badge + icon CTA')
+    main = _re.search(r'<main.*?</main>', raw, _re.S)[0]
+    main = _re.sub(r'(?s)<svg.*?</svg>|<h2 id="sources">.*?</ul>', ' ', main)
+    words = len(text_of(main).split())
+    require(800 <= words <= 1300, f'useful word count {words} outside 800-1300')
+    for other in ('index.html', 'support.html'):
+        require(f'href="{name}"' in (ROOT / other).read_text(), 'not linked from ' + other)
+    require(C['base'] + name in (ROOT / 'llms-full.txt').read_text(), 'missing from llms-full.txt')
+
 home = pages['index.html']
 app = next((s for s in home.schema if s.get('@type') == 'MobileApplication'), None)
 if not app or app.get('downloadUrl') != 'https://apps.apple.com/app/id' + str(C['appId']):

@@ -19,6 +19,21 @@ PAGES = {
     'support.html': (C['shortName'] + ' Support and Contact', 'Get help with ' + C['shortName'] + ', contact the developer and find purchase and app support information.'),
     'privacy.html': (C['shortName'] + ' Privacy Policy', 'Read how ' + C['shortName'] + ' handles app data, device storage and purchase services, and contact the developer about privacy.')
 }
+# Guides are hand-written pages; their metadata, campaign tag and CTAs come from discovery.json.
+GUIDES = {g['file']: g for g in C.get('guides', [])}
+for g in GUIDES.values():
+    PAGES[g['file']] = (g['title'], g['description'])
+AUTHOR = {'@type': 'Person', 'name': 'Mohamed Elatabany', 'url': BASE + 'support.html'}
+
+def faq_pairs(s):
+    # FAQ JSON-LD is built from the visible FAQ (h3 + first paragraph), so the two cannot drift.
+    m = re.search(r'<h2 id="faq">.*?(?=<aside|<h2 id="(?!faq))', s, re.S)
+    text = lambda x: html.unescape(re.sub(r'<[^>]+>', '', x)).strip()
+    return [(text(q), text(a)) for q, a in re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>', m[0] if m else '', re.S)]
+
+def guides_block():
+    items = ''.join(f'<li><a href="{E(g["file"], quote=True)}">{E(g["headline"])}</a></li>' for g in GUIDES.values())
+    return '<!-- discovery-guides:start --><div class="card"><h2>Guides</h2><ul>' + items + '</ul></div><!-- discovery-guides:end -->' if items else ''
 STYLE = '''.discovery-download { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; text-decoration:none; width:fit-content; }
 .discovery-download .discovery-icon { width:48px; height:48px; border-radius:11px; }
 .discovery-download .discovery-badge { width:120px; height:40px; }
@@ -46,14 +61,21 @@ for name, (title, description) in PAGES.items():
     s = re.sub(r'<meta[^>]+property="og:[^"]*"[^>]*>', '', s)
     url = BASE + ('' if name == 'index.html' else name)
     schema = [{'@context': 'https://schema.org', '@type': 'WebPage', 'name': title, 'url': url, 'description': description, 'author': {'@type': 'Person', 'name': 'Mohamed Elatabany', 'url': 'https://github.com/Atabany'}}]
+    guide = GUIDES.get(name)
+    if guide:
+        schema = [{'@context': 'https://schema.org', '@type': 'Article', 'headline': guide['headline'], 'description': description, 'url': url, 'mainEntityOfPage': url, 'datePublished': guide['published'], 'dateModified': guide['modified'], 'image': BASE + 'assets/discovery-icon.png', 'author': AUTHOR, 'publisher': AUTHOR},
+                  {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': C['shortName'], 'item': BASE}, {'@type': 'ListItem', 'position': 2, 'name': guide['headline'], 'item': url}]}]
+        faqs = faq_pairs(s)
+        if faqs:
+            schema.append({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]})
     if name == 'index.html':
         schema.append({'@context': 'https://schema.org', '@type': 'MobileApplication', '@id': BASE + '#app', 'name': C['storeName'], 'url': BASE, 'downloadUrl': f'https://apps.apple.com/app/id{APP}', 'operatingSystem': 'iOS ' + C['minimumOS'] + '+', 'applicationCategory': C['category'], 'softwareVersion': C['version'], 'image': BASE + 'assets/discovery-icon.png', 'description': C['facts'], 'author': {'@type': 'Person', 'name': 'Mohamed Elatabany', 'url': 'https://github.com/Atabany'}})
     meta = f'<meta name="description" content="{E(description, quote=True)}"><link rel="canonical" href="{url}"><meta name="apple-itunes-app" content="app-id={APP}">'
-    for key, value in [('og:type', 'website'), ('og:title', title), ('og:description', description), ('og:url', url), ('og:image', BASE + 'assets/discovery-icon.png')]:
+    for key, value in [('og:type', 'article' if guide else 'website'), ('og:title', title), ('og:description', description), ('og:url', url), ('og:image', BASE + 'assets/discovery-icon.png')]:
         meta += f'<meta property="{key}" content="{E(value, quote=True)}">'
     meta += '<meta name="twitter:card" content="summary"><link rel="stylesheet" href="assets/discovery.css?v=20261018"><script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False).replace('</', '<\\/') + '</script>'
     s = s.replace('</head>', '<!-- discovery-meta:start -->' + meta + '<!-- discovery-meta:end --></head>')
-    tag = C['campaignPrefix'] + '-' + ('home' if name == 'index.html' else Path(name).stem)
+    tag = guide['campaign'] if guide else C['campaignPrefix'] + '-' + ('home' if name == 'index.html' else Path(name).stem)
     assert len(tag) <= 30
     # Ballast already has campaign badges; preserve those, add missing install routes elsewhere.
     if 'apps.apple.com/app/' not in re.search(r'<header.*?</header>', s, re.S)[0]:
@@ -62,9 +84,15 @@ for name, (title, description) in PAGES.items():
             s = s.replace('</div></header>', header_cta + '</div></header>', 1)
         else:
             s = s.replace('</header>', header_cta + '</header>', 1)
+    if guide:
+        s = s.replace('<!-- discovery-cta-slot -->', '<!-- discovery-cta-slot --><!-- discovery-guide-cta:start -->' + cta(tag) + '<!-- discovery-guide-cta:end -->')
+    if name in ('index.html', 'support.html') and GUIDES:
+        at = s.find('<div class="note">')
+        at = at if at >= 0 else s.find('</div></main>')
+        s = s[:at] + guides_block() + s[at:]
     if name == 'index.html':
         s = re.sub(r'<p class="muted">DoseJot’s App Store listing is being prepared\..*?</p>', '', s)
-        facts = '<aside class="discovery-facts"><h2>App facts</h2><p>' + E(C['facts']) + '</p><p>Made by <a href="https://github.com/Atabany">Mohamed Elatabany</a>. App Store listing checked 18 October 2026.</p></aside>'
+        facts = '<aside class="discovery-facts"><h2>App facts</h2><p>' + E(C['facts']) + '</p><p>Made by <a href="https://github.com/Atabany">Mohamed Elatabany</a>. App Store listing checked ' + E(C.get('listingChecked', '18 October 2026')) + '.</p></aside>'
         hero_cta = '' if 'class="store-link"' in s.split('</header>', 1)[-1] else cta(tag)
         s = s.replace('</h1>', '</h1><!-- discovery-hero:start -->' + hero_cta + '<!-- discovery-hero:end -->', 1)
         fact_block = '<!-- discovery-facts:start -->' + facts + '<!-- discovery-facts:end -->'
@@ -85,11 +113,16 @@ for name in PAGES:
     node = ET.SubElement(sitemap, '{' + ns + '}url')
     ET.SubElement(node, '{' + ns + '}loc').text = BASE + ('' if name == 'index.html' else name)
     if name == 'index.html':
-        ET.SubElement(node, '{' + ns + '}lastmod').text = '2026-10-18'
+        ET.SubElement(node, '{' + ns + '}lastmod').text = C.get('homeModified', '2026-10-18')
+    elif name in GUIDES:
+        ET.SubElement(node, '{' + ns + '}lastmod').text = GUIDES[name]['modified']
 ET.indent(sitemap, space='  ')
 ET.ElementTree(sitemap).write(ROOT / 'sitemap.xml', encoding='utf-8', xml_declaration=True)
 (ROOT / 'robots.txt').write_text('# Project sites use the host-root robots.txt policy. This file documents the intended policy.\nUser-agent: *\nAllow: /\nSitemap: ' + BASE + 'sitemap.xml\n')
 summary = '# ' + C['storeName'] + '\n\n> Official app website by Mohamed Elatabany.\n\n' + C['facts'] + '\n\nCanonical App Store listing: https://apps.apple.com/app/id' + APP + '\n\n' + '\n'.join('- [' + title + '](' + BASE + ('' if name == 'index.html' else name) + ')' for name, (title, _) in PAGES.items()) + '\n\nThis reference file is supplementary navigation; it does not establish search ranking or AI recommendations.\n'
 (ROOT / 'llms.txt').write_text(summary)
-(ROOT / 'llms-full.txt').write_text(summary)
+full = summary
+if GUIDES:
+    full += '\n## Guides\n\n' + '\n\n'.join('### ' + g['headline'] + '\n\n' + BASE + g['file'] + ' (updated ' + g['modified'] + ')\n\n' + g['summary'] for g in GUIDES.values()) + '\n'
+(ROOT / 'llms-full.txt').write_text(full)
 print('Added verified metadata, install links, product facts and discovery files for ' + C['shortName'])

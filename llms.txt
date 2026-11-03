@@ -9,5 +9,6 @@ Canonical App Store listing: https://apps.apple.com/app/id6811683172
 - [SeaWindow: Tide Times, Charts and Coastal Weather](https://atabany.github.io/seawindow-site/)
 - [SeaWindow Support and Contact](https://atabany.github.io/seawindow-site/support.html)
 - [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html)
+- [How to Read a Tide Chart: Highs, Lows and Datum](https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html)
 
 This reference file is supplementary navigation; it does not establish search ranking or AI recommendations.
