@@ -43,4 +43,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://atabany.github.io/seawindow-site/sitemap.xml
+Sitemap: https://seawindowtides.com/sitemap.xml

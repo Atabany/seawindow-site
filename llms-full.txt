@@ -13,7 +13,7 @@ SeaWindow is made by one independent developer, Mohamed Elatabany. The app has n
 
 ## SeaWindow
 
-https://atabany.github.io/seawindow-site/
+https://seawindowtides.com/
 
 Home page: what SeaWindow shows, free and Pro features, data sources and FAQ.
 
@@ -43,7 +43,7 @@ A: SeaWindow is made for iPhone with iOS 18 or later, with an Apple Watch app. T
 
 ## Tide height calculator
 
-https://atabany.github.io/seawindow-site/tide-calculator.html
+https://seawindowtides.com/tide-calculator.html
 
 Tide height calculator by SeaWindow. Rule of twelfths: the tide moves 1, 2, 3, 3, 2 and 1 twelfths of its range in the six equal parts between a low and a high (cumulative 1, 3, 6, 9, 11, 12 twelfths). The cosine method gives fraction = (1 − cos(π·t/T))/2. Worked example, NOAA station 9414290 San Francisco, 5 Nov 2026: low 0.862 ft at 1:47 AM, high 5.913 ft at 8:35 AM (MLLW); at 5:00 AM the cosine method gives 3.17 ft, the rule of twelfths 3.18 ft, NOAA's hourly prediction 3.06 ft. Estimates exclude weather; not for navigation.
 
@@ -64,7 +64,7 @@ A: No. Everything is calculated in your browser. The share link only puts your n
 
 ## How to read a tide chart
 
-https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html
+https://seawindowtides.com/how-to-read-a-tide-chart.html
 
 A tide chart is a curve of predicted water height over time: peaks are high tides, dips are low tides, and every height is measured from a datum (MLLW at NOAA stations in the US). Worked example: NOAA station 9414290, San Francisco (Golden Gate), 5 November 2026: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM (MLLW); mean sea level is 3.12 ft above MLLW there.
 
@@ -85,7 +85,7 @@ A: Open Settings with the gear button and choose ft or m under Tide height.
 
 ## Why tide times differ between apps and websites
 
-https://atabany.github.io/seawindow-site/why-tide-times-differ.html
+https://seawindowtides.com/why-tide-times-differ.html
 
 Tide times differ between sources mainly because they use different stations (a reference station or a subordinate station computed from it), a global tide model instead of a station, a different datum (MLLW, chart datum/LAT or mean sea level), a different time zone, or different rounding; weather then moves the real water away from every prediction. Worked example from NOAA predictions retrieved on November 19, 2026 for November 21, 2026: San Francisco (Golden Gate) 9414290 high 6.0 ft at 8:15 AM; Coyote Point Marina 9414449, a subordinate station 27 km away inside the bay, high 7.8 ft at 8:57 AM (NOAA offsets: highs +42 min and ×1.29, lows +68 min and ×1.01). The same 8:15 AM high is 6.0 ft above MLLW but 2.9 ft above mean sea level, and 16:15 in GMT.
 
@@ -106,7 +106,7 @@ A: No. SeaWindow shows astronomical tide predictions or model estimates, without
 
 ## King tides 2026–2027: what they are and when to expect them
 
-https://atabany.github.io/seawindow-site/king-tides.html
+https://seawindowtides.com/king-tides.html
 
 King tide is a popular, non-scientific name for the year’s highest tides, usually perigean spring tides, when a new or full moon falls close to the moon’s perigee (NOAA: typically six to eight times a year). The California King Tides Project lists November 24–26, 2026, December 23–25, 2026 and January 21–22, 2027 statewide (checked November 19, 2026). NOAA predictions for San Francisco 9414290, retrieved November 19, 2026: on December 24, 2026 a high of 7.2 ft at 10:37 AM and a low of −1.8 ft at 5:42 PM (MLLW), against a higher high of 5.3 ft on December 17; the king tide is 1.4 ft above Mean Higher High Water (5.84 ft).
 
@@ -127,7 +127,7 @@ A: No. SeaWindow shows tide predictions and coastal weather, not storm surge or 
 
 ## Spring and neap tides explained, with 2026–27 dates
 
-https://atabany.github.io/seawindow-site/spring-and-neap-tides.html
+https://seawindowtides.com/spring-and-neap-tides.html
 
 Spring tides are the larger tides around new and full moon, when the sun and moon pull in line; neap tides are the smaller tides around the first and last quarter, when they pull at right angles (NOAA). The biggest range often lags the moon phase: from NOAA harmonic constants, the age of phase inequality is about 36 hours at Boston, 26 hours at Charleston and 8 hours at San Francisco. In NOAA predictions for Boston 8443970 (retrieved November 19, 2026), the daily range in the lunar month from December 8, 2026 ran from 7.8 ft on December 17 (first quarter) to 13.5 ft on December 25, two days after the full moon. Moon phase times from the US Naval Observatory, in UTC.
 
@@ -148,7 +148,7 @@ A: Yes, an extra-large one: usually a perigean spring tide, when a new or full m
 
 ## Best tide for tide pooling: how low, when, and how to find minus tides
 
-https://atabany.github.io/seawindow-site/best-tide-for-tide-pooling.html
+https://seawindowtides.com/best-tide-for-tide-pooling.html
 
 The best tide for tide pooling is a minus tide (a low below zero on a NOAA table, which uses Mean Lower Low Water) in daylight; the National Park Service at Point Reyes advises arriving at least an hour before low tide and leaving no later than an hour after it. NOAA predictions for Monterey 9413450, retrieved November 19, 2026: December 2026 has 18 minus low tides, all between 1:58 PM and 8:10 PM; eight fall before sunset (USNO), the lowest −1.7 ft at 4:19 PM on December 23, while the month’s lowest, −1.8 ft at 5:06 PM on December 24, comes after sunset. In June 2027 the lowest tides fall in the early morning, down to −1.8 ft at 6:47 AM on June 6.
 
@@ -169,7 +169,7 @@ A: Leave them. NOAA says collecting intertidal species is illegal in many areas.
 
 ## Best tide for fishing: incoming, outgoing and slack water
 
-https://atabany.github.io/seawindow-site/best-tide-for-fishing.html
+https://seawindowtides.com/best-tide-for-fishing.html
 
 The usual rule of thumb is to fish moving water, the incoming (flood) or outgoing (ebb) tide, rather than slack water, but NOAA warns that the timing of slack water and maximum current relative to high and low tide is unique to each location. Worked example, NOAA predictions retrieved November 19, 2026 for December 26, 2026: Charleston 8665530 low −1.1 ft at 3:08 AM, high 6.3 ft at 9:34 AM, low −0.6 ft at 3:56 PM, high 5.1 ft at 10:03 PM (MLLW); rule of twelfths puts the fastest rise at 5:17–7:25 AM; NOAA current predictions off Fort Sumter give maximum flood 2.2 knots at 6:23 AM, maximum ebb 3.1 knots at 1:20 PM, and slack 27–40 minutes after each high and low. On the neap day of December 16 the maximum current was 1.8 knots. Solunar windows are estimates and do not predict catches.
 
@@ -190,7 +190,7 @@ A: By the rule of twelfths, the water level rises or falls fastest in the middle
 
 ## When is high tide? Why it’s about 50 minutes later each day
 
-https://atabany.github.io/seawindow-site/when-is-high-tide.html
+https://seawindowtides.com/when-is-high-tide.html
 
 On most coasts there are two high tides about 12 hours 25 minutes apart, and high tide comes about 50 minutes later each day, because a lunar day lasts 24 hours 50 minutes (NOAA). Worked example, NOAA predictions for Boston 8443970 retrieved November 19, 2026: the daytime high moves from 9:22 AM on November 23, 2026 to 2:38 PM on November 29, between 47 and 59 minutes later each day (53 minutes on average); November 26 has only one high tide. Pensacola 8729840, with a diurnal tide, has one high a day (1.6 ft at 9:14 PM on November 23) and none on November 26.
 
