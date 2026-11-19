@@ -82,3 +82,129 @@ A: A tide table lists the times and heights of highs and lows. The curve joins t
 
 Q: How do I switch SeaWindow between feet and metres?
 A: Open Settings with the gear button and choose ft or m under Tide height.
+
+## Why tide times differ between apps and websites
+
+https://atabany.github.io/seawindow-site/why-tide-times-differ.html
+
+Tide times differ between sources mainly because they use different stations (a reference station or a subordinate station computed from it), a global tide model instead of a station, a different datum (MLLW, chart datum/LAT or mean sea level), a different time zone, or different rounding; weather then moves the real water away from every prediction. Worked example from NOAA predictions retrieved on November 19, 2026 for November 21, 2026: San Francisco (Golden Gate) 9414290 high 6.0 ft at 8:15 AM; Coyote Point Marina 9414449, a subordinate station 27 km away inside the bay, high 7.8 ft at 8:57 AM (NOAA offsets: highs +42 min and ×1.29, lows +68 min and ×1.01). The same 8:15 AM high is 6.0 ft above MLLW but 2.9 ft above mean sea level, and 16:15 in GMT.
+
+Q: Which tide time should I trust?
+A: The prediction for the station closest to you on the same stretch of water, from the official agency where possible (NOAA CO-OPS in the United States). Check the station and its distance first.
+
+Q: Why is my tide time an hour off?
+A: Usually daylight saving or a time zone mix-up: the same prediction can be listed in GMT, local standard time or local daylight time.
+
+Q: Why do the heights differ when the times match?
+A: The sources probably use different datums, such as MLLW, chart datum or mean sea level, or round differently. At San Francisco, a 6.0 ft high above MLLW is 2.9 ft above mean sea level.
+
+Q: What is a subordinate tide station?
+A: A station predicted by applying time differences and height ratios to a nearby reference station, such as Coyote Point Marina from San Francisco (Golden Gate).
+
+Q: Does SeaWindow include storm surge?
+A: No. SeaWindow shows astronomical tide predictions or model estimates, without storm surge or tidal currents. Check official marine forecasts and warnings for those.
+
+## King tides 2026–2027: what they are and when to expect them
+
+https://atabany.github.io/seawindow-site/king-tides.html
+
+King tide is a popular, non-scientific name for the year’s highest tides, usually perigean spring tides, when a new or full moon falls close to the moon’s perigee (NOAA: typically six to eight times a year). The California King Tides Project lists November 24–26, 2026, December 23–25, 2026 and January 21–22, 2027 statewide (checked November 19, 2026). NOAA predictions for San Francisco 9414290, retrieved November 19, 2026: on December 24, 2026 a high of 7.2 ft at 10:37 AM and a low of −1.8 ft at 5:42 PM (MLLW), against a higher high of 5.3 ft on December 17; the king tide is 1.4 ft above Mean Higher High Water (5.84 ft).
+
+Q: Is a king tide the same as a spring tide?
+A: Not quite. Every new and full moon brings spring tides. King tide is the popular name for the highest of them, usually perigean spring tides, when a new or full moon is close to the moon’s perigee.
+
+Q: When are the next king tides in California?
+A: November 24–26 and December 23–25, 2026, and January 21–22, 2027, according to the California King Tides Project.
+
+Q: Why are king tides bigger in winter on the West Coast?
+A: NOAA says West Coast perigean spring tides have their largest range near the solstices, because of the sun’s declination, and Earth is closest to the sun around January 2.
+
+Q: How much higher is a king tide than a normal high tide?
+A: The California Coastal Commission says one to two feet higher than average high tides. At San Francisco, the December 24, 2026 high of 7.2 ft is 1.4 ft above the station’s Mean Higher High Water.
+
+Q: Does SeaWindow warn about coastal flooding?
+A: No. SeaWindow shows tide predictions and coastal weather, not storm surge or flood warnings.
+
+## Spring and neap tides explained, with 2026–27 dates
+
+https://atabany.github.io/seawindow-site/spring-and-neap-tides.html
+
+Spring tides are the larger tides around new and full moon, when the sun and moon pull in line; neap tides are the smaller tides around the first and last quarter, when they pull at right angles (NOAA). The biggest range often lags the moon phase: from NOAA harmonic constants, the age of phase inequality is about 36 hours at Boston, 26 hours at Charleston and 8 hours at San Francisco. In NOAA predictions for Boston 8443970 (retrieved November 19, 2026), the daily range in the lunar month from December 8, 2026 ran from 7.8 ft on December 17 (first quarter) to 13.5 ft on December 25, two days after the full moon. Moon phase times from the US Naval Observatory, in UTC.
+
+Q: Do spring tides only happen in spring?
+A: No. The name comes from the tide “springing forth”. Spring tides come twice a month, all year.
+
+Q: How long after a full moon is the biggest tide?
+A: It depends on the station. From NOAA’s harmonic constants the lag is about 36 hours at Boston, 26 hours at Charleston and 8 hours at San Francisco.
+
+Q: How much bigger are spring tides than neap tides?
+A: It varies by place and month. At Boston, NOAA predicts a daily range of 7.8 ft on December 17, 2026 and 13.5 ft on December 25.
+
+Q: Are tidal currents stronger at spring tides?
+A: Yes. NOAA calls the strong currents at new and full moon spring currents, and the weak ones at the quarters neap currents.
+
+Q: Is a king tide a spring tide?
+A: Yes, an extra-large one: usually a perigean spring tide, when a new or full moon coincides with the moon’s closest approach.
+
+## Best tide for tide pooling: how low, when, and how to find minus tides
+
+https://atabany.github.io/seawindow-site/best-tide-for-tide-pooling.html
+
+The best tide for tide pooling is a minus tide (a low below zero on a NOAA table, which uses Mean Lower Low Water) in daylight; the National Park Service at Point Reyes advises arriving at least an hour before low tide and leaving no later than an hour after it. NOAA predictions for Monterey 9413450, retrieved November 19, 2026: December 2026 has 18 minus low tides, all between 1:58 PM and 8:10 PM; eight fall before sunset (USNO), the lowest −1.7 ft at 4:19 PM on December 23, while the month’s lowest, −1.8 ft at 5:06 PM on December 24, comes after sunset. In June 2027 the lowest tides fall in the early morning, down to −1.8 ft at 6:47 AM on June 6.
+
+Q: What is a minus tide?
+A: A low tide predicted below zero on the tide table. In the US, zero is Mean Lower Low Water, so a −1.5 ft tide is 1.5 ft below the average of the lowest daily tides.
+
+Q: How low does the tide need to be for tide pooling?
+A: Lower is better. The National Park Service recommends minus tides; at Monterey in December 2026, the lowest daylight tides reach −1.4 to −1.7 ft.
+
+Q: How long before low tide should I arrive?
+A: At least an hour before the predicted low, and leave no later than an hour after it, as the Park Service advises at Point Reyes.
+
+Q: Why are the best low tides in the afternoon in winter?
+A: On the US West Coast the lowest tides fall in the afternoon and evening in winter and the early morning in summer, as the Monterey predictions show. Cabrillo National Monument says its fall and winter low tides coincide with park hours.
+
+Q: Can I take shells or animals from tide pools?
+A: Leave them. NOAA says collecting intertidal species is illegal in many areas.
+
+## Best tide for fishing: incoming, outgoing and slack water
+
+https://atabany.github.io/seawindow-site/best-tide-for-fishing.html
+
+The usual rule of thumb is to fish moving water, the incoming (flood) or outgoing (ebb) tide, rather than slack water, but NOAA warns that the timing of slack water and maximum current relative to high and low tide is unique to each location. Worked example, NOAA predictions retrieved November 19, 2026 for December 26, 2026: Charleston 8665530 low −1.1 ft at 3:08 AM, high 6.3 ft at 9:34 AM, low −0.6 ft at 3:56 PM, high 5.1 ft at 10:03 PM (MLLW); rule of twelfths puts the fastest rise at 5:17–7:25 AM; NOAA current predictions off Fort Sumter give maximum flood 2.2 knots at 6:23 AM, maximum ebb 3.1 knots at 1:20 PM, and slack 27–40 minutes after each high and low. On the neap day of December 16 the maximum current was 1.8 knots. Solunar windows are estimates and do not predict catches.
+
+Q: Is an incoming or outgoing tide better for fishing?
+A: It depends on the spot. Both are moving water. On flats the flood brings back depth; at an inlet the ebb drains the bay through a narrow gap. Your own records from that spot are the best guide.
+
+Q: Is slack tide bad for fishing?
+A: Not always. With little current less water moves past you, but slack can be the easiest time to hold bait near the bottom. It does not always come at high or low tide.
+
+Q: Does the moon affect fishing?
+A: The moon drives the tides, and spring tides move more water. Solunar periods are a separate idea; SeaWindow shows them as estimates that do not predict catches.
+
+Q: Does SeaWindow show tidal currents?
+A: No. It shows tide heights and times. For current speed and slack water, use NOAA’s tidal current predictions.
+
+Q: How do I find the fastest-moving part of the tide?
+A: By the rule of twelfths, the water level rises or falls fastest in the middle two sixths between a low and a high. The tide height calculator works it out from two tides.
+
+## When is high tide? Why it’s about 50 minutes later each day
+
+https://atabany.github.io/seawindow-site/when-is-high-tide.html
+
+On most coasts there are two high tides about 12 hours 25 minutes apart, and high tide comes about 50 minutes later each day, because a lunar day lasts 24 hours 50 minutes (NOAA). Worked example, NOAA predictions for Boston 8443970 retrieved November 19, 2026: the daytime high moves from 9:22 AM on November 23, 2026 to 2:38 PM on November 29, between 47 and 59 minutes later each day (53 minutes on average); November 26 has only one high tide. Pensacola 8729840, with a diurnal tide, has one high a day (1.6 ft at 9:14 PM on November 23) and none on November 26.
+
+Q: How many high tides are there in a day?
+A: Usually two, about 12 hours 25 minutes apart. Some coasts, such as many parts of the Gulf of Mexico, have one. Because the tide cycle runs on a 24-hour 50-minute lunar day, some calendar days have only one high.
+
+Q: Why is high tide about 50 minutes later each day?
+A: A lunar day lasts 24 hours 50 minutes, so Earth takes about 50 extra minutes each day to bring the same spot back under the moon.
+
+Q: Is high tide at the same time everywhere?
+A: No. Each station has its own times. In San Francisco Bay, NOAA predicts highs at Coyote Point Marina 42 minutes after the Golden Gate.
+
+Q: Can there be only one high tide in a day?
+A: Yes. In Boston on November 26, 2026, NOAA predicts one high, at 11:49 AM; the next is just after midnight. On diurnal coasts one high a day is normal.
+
+Q: Where can I see the next high tide?
+A: In SeaWindow, the Today screen shows Next high and Next low for the station you choose, with its distance and source.

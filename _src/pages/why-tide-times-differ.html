@@ -1,0 +1,104 @@
+<!--page
+{
+ "kind": "guide",
+ "order": 3,
+ "title": "Why Tide Times Differ Between Apps and Websites",
+ "description": "Two tide sources disagree? It is usually the station, its distance, the datum, the time zone or rounding. A worked NOAA example shows how much each one matters.",
+ "headline": "Why tide times differ between apps and websites",
+ "eyebrow": "Tide guide",
+ "crumb": "Why tide times differ",
+ "blurb": "Station, distance, datum, time zone, rounding and weather: why two tide sources disagree, with a NOAA example from San Francisco Bay.",
+ "campaign": "seawindow-guide-times-differ",
+ "published": "2026-11-19",
+ "modified": "2026-11-19",
+ "about": [
+  "tide times",
+  "tide station",
+  "subordinate station",
+  "tidal datum",
+  "tide prediction"
+ ],
+ "related": [
+  "how-to-read-a-tide-chart.html",
+  "when-is-high-tide.html",
+  "tide-calculator.html"
+ ],
+ "summary": "Tide times differ between sources mainly because they use different stations (a reference station or a subordinate station computed from it), a global tide model instead of a station, a different datum (MLLW, chart datum/LAT or mean sea level), a different time zone, or different rounding; weather then moves the real water away from every prediction. Worked example from NOAA predictions retrieved on November 19, 2026 for November 21, 2026: San Francisco (Golden Gate) 9414290 high 6.0 ft at 8:15 AM; Coyote Point Marina 9414449, a subordinate station 27 km away inside the bay, high 7.8 ft at 8:57 AM (NOAA offsets: highs +42 min and ×1.29, lows +68 min and ×1.01). The same 8:15 AM high is 6.0 ft above MLLW but 2.9 ft above mean sea level, and 16:15 in GMT."
+}
+-->
+<p class="answer">Tide times differ between apps and websites because they often use different tide stations, different ways of predicting the tide, or a different reference level and clock. When two sources disagree, check which station each one uses and how far away it is, whether the number is a station prediction or a model estimate, which datum the heights are measured from, and which time zone the times are in.</p>
+<!--cta-->
+<div class="toc"><p>On this page</p><ol><li><a href="#stations">Reference and subordinate stations</a></li><li><a href="#model">Station predictions vs a global model</a></li><li><a href="#datum">Different datums, different numbers</a></li><li><a href="#clock">Time zones, daylight saving and rounding</a></li><li><a href="#example">Worked example: San Francisco Bay</a></li><li><a href="#weather">Weather moves the real water</a></li><li><a href="#seawindow">How SeaWindow shows its source</a></li><li><a href="#faq">FAQ</a></li></ol></div>
+
+<h2 id="stations">Reference and subordinate stations</h2>
+<p>Every tide prediction belongs to one place. NOAA’s glossary defines a <strong>reference station</strong> as one “for which independent daily predictions are given”. A <strong>subordinate station</strong> gets its times and heights from “differences and ratios applied to the full predictions at a reference station”. Of the stations in NOAA’s prediction list on November 19, 2026, 1,260 were reference stations and 2,242 subordinate.</p>
+<p>So two sources can both be right and still disagree: one shows the reference station at the harbor mouth, another a subordinate station inside the bay, or a different “nearest” station. NOAA also notes that predictions for the outer coast are generally more accurate than for stations along rivers, bays or estuaries.</p>
+
+<h2 id="model">Station predictions vs a global model</h2>
+<p>Where no station is near, some sources use a global ocean tide model such as EOT20, built from satellite altimetry (Hart-Davis and others, 2021). A model point is an estimate, not a prediction tied to a tide gauge, and its times and heights can be off, especially inside bays and rivers. Outside the United States, NOAA refers users to each country’s own tide agency, so two apps may compute the same harbor from different data.</p>
+
+<h2 id="datum">Different datums, different numbers</h2>
+<p>A tide height is measured from a chosen zero, the datum. Changing the datum changes the heights, never the times.</p>
+<ul>
+<li><strong>MLLW (United States).</strong> NOAA uses Mean Lower Low Water, “the average of the lower low water height of each tidal day”. Since 1980 it has also been the chart datum for US marine waters.</li>
+<li><strong>Chart datum and LAT (UK and elsewhere).</strong> British tide tables give heights above chart datum, which the UK’s National Tidal and Sea Level Facility describes as approximately the lowest level due to astronomical effects, close to Lowest Astronomical Tide (LAT). LAT sits at or below MLLW, so the same water reads higher above it.</li>
+<li><strong>Mean sea level (MSL).</strong> MSL sits in the middle of the range, so low tides usually read negative. SeaWindow uses it for model estimates.</li>
+</ul>
+
+<h2 id="clock">Time zones, daylight saving and rounding</h2>
+<p>NOAA’s data service returns the same prediction in GMT, local standard time, or local time corrected for daylight saving (summer time in the UK). A source that ignores daylight saving is an hour off for much of the year. Australia’s Bureau of Meteorology says its tide table files are already adjusted for it.</p>
+<p>Rounding adds small differences: NOAA gives heights to a thousandth of a foot, SeaWindow shows one decimal place. And because the curve is almost flat near high and low water, a tiny difference between two calculations moves the time of the turn more than its height.</p>
+
+<h2 id="example">Worked example: San Francisco Bay, November 21, 2026</h2>
+<p>NOAA predictions for two stations, retrieved from the NOAA CO-OPS data service on November 19, 2026. San Francisco (Golden Gate, 9414290) is a reference station at the bay’s entrance; Coyote Point Marina (9414449) is a subordinate station 27 km south-southeast, inside the bay. NOAA’s offsets for Coyote Point: highs 42 minutes later and 1.29 times as high, lows 68 minutes later and 1.01 times. Feet above MLLW, Pacific Standard Time.</p>
+<div class="table-wrap"><table>
+<caption class="skip">NOAA tide predictions for San Francisco (Golden Gate) and Coyote Point Marina, November 21, 2026</caption>
+<thead><tr><th scope="col">Tide</th><th scope="col">Golden Gate</th><th scope="col">Coyote Point Marina</th><th scope="col">Difference</th></tr></thead>
+<tbody>
+<tr><td>Low</td><td>1:40 AM, 1.7 ft</td><td>2:48 AM, 1.7 ft</td><td>68 min later</td></tr>
+<tr><td>High</td><td>8:15 AM, 6.0 ft</td><td>8:57 AM, 7.8 ft</td><td>42 min later, 1.7 ft higher</td></tr>
+<tr><td>Low</td><td>2:54 PM, 0.2 ft</td><td>4:02 PM, 0.2 ft</td><td>68 min later</td></tr>
+<tr><td>High</td><td>9:35 PM, 4.4 ft</td><td>10:17 PM, 5.7 ft</td><td>42 min later, 1.3 ft higher</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Station.</strong> At Coyote Point, the Golden Gate prediction would put the morning high 42 minutes too early and 1.7 ft too low.</li>
+<li><strong>Datum.</strong> The 8:15 AM high is 6.0 ft above MLLW but 0.89 m (2.9 ft) above mean sea level, which is 3.12 ft above MLLW here.</li>
+<li><strong>Clock.</strong> In GMT, NOAA lists that high at 16:15.</li>
+<li><strong>Rounding.</strong> NOAA’s raw 6.026 ft shows as 6.0 ft, or 1.84 m.</li>
+</ul>
+<p class="note">To repeat this, ask NOAA’s data service for <code>product=predictions</code> with <code>interval=hilo</code>, <code>datum=MLLW</code>, <code>time_zone=lst_ldt</code> and <code>units=english</code> for each station ID, and read the offsets from the station’s <code>tidepredoffsets</code> metadata.</p>
+
+<h2 id="weather">Weather moves the real water</h2>
+<p>All of these numbers are astronomical predictions. NOAA says it “cannot predict the effect that wind, rain, freshwater runoff, and other short-term meteorological events will have on the tides.” At Baltimore, winds along Chesapeake Bay have pushed water 1–2 ft above or below the prediction; at Galveston, weather can shift the tide by an hour or more. Onshore wind and low pressure raise the water; offshore wind exaggerates low tides. Two sources that agree perfectly can both be wrong on a stormy day.</p>
+
+<h2 id="seawindow">How SeaWindow shows its source</h2>
+<ol class="steps">
+<li><strong>Station, distance and provider.</strong> Under the tide curve on the Today screen, a line names the station, its distance and the provider, for example NOAA CO-OPS.</li>
+<li><strong>Datum.</strong> <strong>Tide table &amp; source</strong> lists today’s highs and lows with the <strong>Datum</strong>. In <strong>Places</strong>, a station’s <strong>i</strong> button adds the <strong>Station ID</strong> and <strong>Time zone</strong>.</li>
+<li><strong>Estimates are labeled.</strong> US tides are NOAA CO-OPS predictions. Elsewhere SeaWindow uses open international station data, calculated on the iPhone, or WorldTides; where no station is near, the EOT20 model, labeled <strong>Estimated water level</strong>.</li>
+<li><strong>Units.</strong> Switch feet and meters in <strong>Settings</strong> under <strong>Tide height</strong>.</li>
+</ol>
+<p>SeaWindow does not show tidal currents or storm surge. Like any tide prediction, it is a planning aid, not a navigation or safety tool.</p>
+
+<h2 id="faq">FAQ</h2>
+<section class="faq" id="faq-list">
+<details><summary>Which tide time should I trust?</summary><div class="a"><p>The prediction for the station closest to you on the same stretch of water, from the official agency where possible (NOAA CO-OPS in the United States). Check the station and its distance first.</p></div></details>
+<details><summary>Why is my tide time an hour off?</summary><div class="a"><p>Usually daylight saving or a time zone mix-up: the same prediction can be listed in GMT, local standard time or local daylight time.</p></div></details>
+<details><summary>Why do the heights differ when the times match?</summary><div class="a"><p>The sources probably use different datums, such as MLLW, chart datum or mean sea level, or round differently. At San Francisco, a 6.0 ft high above MLLW is 2.9 ft above mean sea level.</p></div></details>
+<details><summary>What is a subordinate tide station?</summary><div class="a"><p>A station predicted by applying time differences and height ratios to a nearby reference station, such as Coyote Point Marina from San Francisco (Golden Gate).</p></div></details>
+<details><summary>Does SeaWindow include storm surge?</summary><div class="a"><p>No. SeaWindow shows astronomical tide predictions or model estimates, without storm surge or tidal currents. Check official marine forecasts and warnings for those.</p></div></details>
+</section>
+<!--cta-->
+
+<h2 id="sources">Sources</h2>
+<ul class="sources">
+<li>NOAA CO-OPS, tide predictions for <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9414290">San Francisco 9414290</a> and <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9414449">Coyote Point Marina 9414449</a>, <a href="https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9414449/tidepredoffsets.json">Coyote Point offsets</a> and <a href="https://tidesandcurrents.noaa.gov/datums.html?id=9414290">San Francisco datums</a> (retrieved November 19, 2026)</li>
+<li>NOAA CO-OPS, <a href="https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=tidepredictions">tide prediction station list</a> and <a href="https://api.tidesandcurrents.noaa.gov/api/prod/">data service documentation</a></li>
+<li>NOAA CO-OPS, <a href="https://tidesandcurrents.noaa.gov/publications/glossary2.pdf">Tide and Current Glossary</a> and <a href="https://tidesandcurrents.noaa.gov/faq.html">FAQ</a></li>
+<li>NOAA Ocean Service, <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides08_othereffects.html">what affects tides in addition to the sun and moon</a></li>
+<li>National Tidal and Sea Level Facility (UK), <a href="https://ntslf.org/tides/datum">chart datum and ordnance datum</a> and <a href="https://ntslf.org/tides/definitions">definitions of tidal levels</a></li>
+<li>Bureau of Meteorology (Australia), <a href="https://www.bom.gov.au/oceanography/projects/ntc/tide_tables.shtml">tide tables</a></li>
+<li>Hart-Davis and others (2021), <a href="https://essd.copernicus.org/articles/13/3869/2021/">EOT20: a global ocean tide model from multi-mission satellite altimetry</a>, Earth System Science Data 13</li>
+</ul>
+<p class="muted">Spotted an error or a number that looks wrong? <a href="mailto:atabany.apps@gmail.com?subject=SeaWindow%20tide%20times%20guide">Email the developer</a> or see <a href="support.html">SeaWindow support</a>.</p>
+<!--related-->
