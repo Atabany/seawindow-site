@@ -1,0 +1,25 @@
+{
+  "base": "https://atabany.github.io/seawindow-site/",
+  "appId": "6811683172",
+  "providerToken": "127826363",
+  "storeName": "SeaWindow: Tide Times & Charts",
+  "author": "Mohamed Elatabany",
+  "authorLinks": [
+    "https://github.com/Atabany"
+  ],
+  "email": "atabany.apps@gmail.com",
+  "version": "1.3.0",
+  "minimumOS": "18.0",
+  "listingChecked": "2026-11-19",
+  "rating": {
+    "value": 0,
+    "count": 0
+  },
+  "facts": "SeaWindow is an iPhone app (iOS 18 or later) that shows tide times and tide charts, hourly coastal weather, waves and swell, sea temperature, and sun and moon times for coasts worldwide. US tides come from NOAA CO-OPS predictions at more than 3,000 stations. Elsewhere SeaWindow uses open international tide-station data, calculated on the iPhone, or WorldTides predictions, and where no station is near, the EOT20 global tide model, labelled as an estimate. Weather comes from Apple Weather. Today's forecast and charts, a tide widget and one favorite coast are free; optional SeaWindow Pro adds ten days ahead, every chart for every day, annual tide tables, unlimited favorites, alerts, offline forecasts, all widgets, Live Activities and Apple Watch. No account, no ads, no tracking. It is a planning aid, not a navigation or safety tool.",
+  "llmsLead": "Official website of SeaWindow, an iPhone app for tide times, tide charts and coastal weather, made by independent developer Mohamed Elatabany.",
+  "llmsAbout": "SeaWindow is made by one independent developer, Mohamed Elatabany. The app has no account and no advertising. Features listed on this site are checked against the app's source code and the live App Store listing. Prices are shown in the app and on the App Store, not on this website, because they vary by country.",
+  "offerNote": "Free download. Optional SeaWindow Pro subscription (weekly, monthly or yearly); prices for your region appear in the app.",
+  "ctaNote": "Free on iPhone · iOS 18 or later<br>No account, no ads",
+  "ctaText": "See today’s tide for your coast in SeaWindow.",
+  "footerBlurb": "Tide times, tide charts and coastal weather for iPhone. Made by an independent developer, with no account, no ads and no tracking."
+}

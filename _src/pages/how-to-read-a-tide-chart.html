@@ -1,0 +1,99 @@
+<!--page
+{
+ "kind": "guide",
+ "order": 2,
+ "title": "How to Read a Tide Chart: Highs, Lows and Datum",
+ "description": "Read a tide chart in minutes: time, height, highs and lows, and the datum behind each number, with a worked NOAA example and the steps in SeaWindow.",
+ "headline": "How to read a tide chart",
+ "eyebrow": "Tide guide",
+ "crumb": "How to read a tide chart",
+ "blurb": "Time, height, highs and lows, and the datum behind every number, with a worked NOAA example from San Francisco.",
+ "campaign": "seawindow-guide-tide-chart",
+ "published": "2026-11-04",
+ "modified": "2026-11-04",
+ "about": [
+  "tide chart",
+  "tidal datum",
+  "MLLW"
+ ],
+ "summary": "A tide chart is a curve of predicted water height over time: peaks are high tides, dips are low tides, and every height is measured from a datum (MLLW at NOAA stations in the US). Worked example: NOAA station 9414290, San Francisco (Golden Gate), 5 November 2026: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM (MLLW); mean sea level is 3.12 ft above MLLW there."
+}
+-->
+<p class="answer">A tide chart is a curve of predicted water height over time: the peaks are high tides, the dips are low tides, and every height is measured from a reference level called the datum. Read the time along the bottom, the height up the side, and check the station and datum before comparing the number with anything else.</p>
+<!--cta-->
+<div class="toc"><p>On this page</p><ol><li><a href="#parts">The four parts of a tide chart</a></li><li><a href="#datum">What the datum means</a></li><li><a href="#example">Worked example: San Francisco</a></li><li><a href="#seawindow">Reading the tide in SeaWindow</a></li><li><a href="#limits">What a tide chart cannot tell you</a></li><li><a href="#faq">FAQ</a></li></ol></div>
+
+<h2 id="parts">The four parts of a tide chart</h2>
+<ol>
+<li><strong>Time.</strong> The horizontal axis is the clock, normally the local time of the station. Check whether daylight saving time applies.</li>
+<li><strong>Height.</strong> The vertical axis is the predicted water level in feet or metres. It is not water depth: it is the height of the sea surface above the datum.</li>
+<li><strong>Highs and lows.</strong> Each peak is a high tide and each trough a low tide. Between them the water is rising (a flood tide) or falling (an ebb tide). NOAA explains that most coasts get two highs and two lows in a lunar day of 24 hours and 50 minutes, which is why tide times move later from one day to the next.</li>
+<li><strong>Station and datum.</strong> A prediction belongs to one place. Heights from a distant station, or from a different datum, can differ from your beach.</li>
+</ol>
+
+<h2 id="datum">What the datum means</h2>
+<p>Zero on a tide chart is a chosen reference level, not the sea floor. In the United States NOAA predictions use <strong>Mean Lower Low Water (MLLW)</strong>, which NOAA defines as “the average of the lower low water height of each tidal day” over the National Tidal Datum Epoch. Because MLLW is an average of the lowest daily tides, some lows fall below it. Those show as negative numbers, often called minus tides, and they expose more shoreline than usual.</p>
+<p>Outside the United States the reference can be a different chart datum, and some sources use Mean Sea Level, so the same moment can carry different numbers. At San Francisco, NOAA’s datum sheet puts Mean Sea Level 3.12 ft above MLLW and Mean Higher High Water 5.84 ft above MLLW (1983–2001 epoch). Subtract 3.12 ft from an MLLW height to get the height relative to mean sea level.</p>
+
+<h2 id="example">Worked example: San Francisco, 5 November 2026</h2>
+<p>These are NOAA’s predictions for station 9414290 (San Francisco, Golden Gate), in local time, retrieved from the NOAA CO-OPS data service on 4 November 2026. Feet and metres are heights above MLLW (1 ft is exactly 0.3048 m). “vs MSL” is the same height relative to mean sea level.</p>
+<figure>
+<!-- tide-svg:start --><svg class="tide-svg" viewBox="0 0 680 320" role="img" aria-labelledby="tide-svg-title tide-svg-desc"><title id="tide-svg-title">Predicted tide, San Francisco (Golden Gate), 5 November 2026</title><desc id="tide-svg-desc">Curve of NOAA predicted water level in feet above MLLW from midnight to midnight: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM. Mean sea level is 3.1 ft above MLLW.</desc><line class="grid" x1="52" x2="664" y1="245.0" y2="245.0"/><text class="axis" x="44" y="250.0" text-anchor="end">0 ft</text><line class="grid" x1="52" x2="664" y1="183.0" y2="183.0"/><text class="axis" x="44" y="188.0" text-anchor="end">2 ft</text><line class="grid" x1="52" x2="664" y1="121.0" y2="121.0"/><text class="axis" x="44" y="126.0" text-anchor="end">4 ft</text><line class="grid" x1="52" x2="664" y1="59.0" y2="59.0"/><text class="axis" x="44" y="64.0" text-anchor="end">6 ft</text><text class="axis" x="52.0" y="304" text-anchor="start">12 AM</text><text class="axis" x="205.0" y="304" text-anchor="middle">6 AM</text><text class="axis" x="358.0" y="304" text-anchor="middle">12 PM</text><text class="axis" x="511.0" y="304" text-anchor="middle">6 PM</text><text class="axis" x="664.0" y="304" text-anchor="end">12 AM</text><line class="msl" x1="52" x2="664" y1="148.3" y2="148.3"/><text class="note-label" x="429.4" y="142.3" text-anchor="middle">Mean sea level</text><text class="note-label" x="660" y="239.0" text-anchor="end">0 = MLLW</text><polyline class="curve" points="52.0,193.7 58.4,199.8 64.8,205.2 71.1,209.7 77.5,213.3 83.9,216.0 90.2,217.6 96.6,218.3 103.0,217.9 109.4,216.5 115.8,214.2 122.1,210.9 128.5,206.7 134.9,201.6 141.2,195.8 147.6,189.3 154.0,182.3 160.4,174.8 166.8,166.9 173.1,158.7 179.5,150.3 185.9,141.7 192.2,133.1 198.6,124.5 205.0,116.0 211.4,107.7 217.8,99.6 224.1,92.1 230.5,85.0 236.9,78.7 243.2,73.2 249.6,68.7 256.0,65.2 262.4,62.9 268.8,61.8 275.1,62.0 281.5,63.5 287.9,66.3 294.2,70.3 300.6,75.6 307.0,82.1 313.4,89.6 319.8,98.1 326.1,107.3 332.5,117.1 338.9,127.3 345.2,137.7 351.6,148.2 358.0,158.5 364.4,168.5 370.8,178.0 377.1,186.8 383.5,194.9 389.9,202.1 396.2,208.3 402.6,213.5 409.0,217.7 415.4,220.7 421.8,222.6 428.1,223.4 434.5,223.1 440.9,221.7 447.2,219.2 453.6,215.9 460.0,211.7 466.4,206.8 472.8,201.3 479.1,195.2 485.5,188.6 491.9,181.8 498.2,174.6 504.6,167.3 511.0,159.9 517.4,152.5 523.8,145.1 530.1,137.9 536.5,131.0 542.9,124.5 549.2,118.4 555.6,113.0 562.0,108.4 568.4,104.6 574.8,101.7 581.1,99.9 587.5,99.1 593.9,99.5 600.2,100.9 606.6,103.4 613.0,106.9 619.4,111.4 625.8,116.7 632.1,122.8 638.5,129.6 644.9,136.8 651.2,144.4 657.6,152.1 664.0,159.8"/><circle class="lo" cx="97.5" cy="218.3" r="5"/><text class="event" x="97.5" y="265.0" text-anchor="start">Low 0.9 ft · 1:47 AM</text><circle class="hi" cx="270.9" cy="61.7" r="5"/><text class="event" x="270.9" y="49.7" text-anchor="middle">High 5.9 ft · 8:35 AM</text><circle class="lo" cx="429.4" cy="223.4" r="5"/><text class="event" x="429.4" y="265.0" text-anchor="middle">Low 0.7 ft · 2:48 PM</text><circle class="hi" cx="588.8" cy="99.1" r="5"/><text class="event" x="588.8" y="87.1" text-anchor="end">High 4.7 ft · 9:03 PM</text></svg><!-- tide-svg:end -->
+<figcaption>NOAA predicted water level, feet above MLLW. From 15-minute predictions; not for navigation.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<caption class="skip">NOAA high and low tide predictions, San Francisco, 5 November 2026</caption>
+<thead><tr><th scope="col">Time</th><th scope="col">Tide</th><th scope="col">Feet</th><th scope="col">Metres</th><th scope="col">vs MSL</th></tr></thead>
+<tbody>
+<tr><td>1:47 AM</td><td>Low</td><td>0.9 ft</td><td>0.26 m</td><td>−2.3 ft</td></tr>
+<tr><td>8:35 AM</td><td>High</td><td>5.9 ft</td><td>1.80 m</td><td>2.8 ft</td></tr>
+<tr><td>2:48 PM</td><td>Low</td><td>0.7 ft</td><td>0.21 m</td><td>−2.4 ft</td></tr>
+<tr><td>9:03 PM</td><td>High</td><td>4.7 ft</td><td>1.43 m</td><td>1.6 ft</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Range.</strong> The water rises 5.1 ft from the early low to the morning high over 6 hours 48 minutes, then falls 5.2 ft by mid-afternoon.</li>
+<li><strong>Unequal highs.</strong> The morning high is 1.2 ft higher than the evening high. NOAA calls this a mixed semidiurnal tide and notes it is typical of the U.S. West Coast.</li>
+<li><strong>Timing.</strong> The two highs are 12 hours 28 minutes apart, close to NOAA’s average of 12 hours 25 minutes.</li>
+<li><strong>Datum check.</strong> The “0.7 ft” low is 2.4 ft below mean sea level. Both numbers are right; they use different zeros.</li>
+</ul>
+<p>Compare 24 December 2026, within a day of the full moon (US Naval Observatory). NOAA predicts a high of 7.2 ft (2.20 m) at 10:37 AM and a low of −1.8 ft (−0.56 m) at 5:42 PM: a 9.1 ft fall, about 3.8 ft more than the largest swing on 5 November. NOAA explains that the larger spring tides come around new and full moon, and the moderate neap tides when the sun and moon are at right angles.</p>
+
+<h2 id="seawindow">Reading the tide in SeaWindow</h2>
+<p>SeaWindow puts this chart on its Today tab, with its source and datum.</p>
+<ol class="steps">
+<li><strong>Choose the coast.</strong> Open <strong>Places</strong>, type in <strong>Search coasts</strong> or tap <strong>Use my area</strong>, then pick a station on the map or in the list. The station card’s <strong>i</strong> button opens station details with the <strong>Station ID</strong>, <strong>Time zone</strong>, <strong>Datum</strong> and <strong>Station distance</strong>.</li>
+<li><strong>Read the Tides card on Today.</strong> The large number is the water level now, labelled <strong>Predicted water level</strong> (or <strong>Estimated water level</strong> for a model point). The pill says <strong>Rising</strong> or <strong>Falling</strong>, and a line such as “High tide in 2 hr, 10 min” has a bar showing how far the water has moved since the last turn.</li>
+<li><strong>Use the curve.</strong> A glowing dot marks now. Touch and drag along the curve to read the height at another time. <strong>Next high</strong> and <strong>Next low</strong> show the coming turns.</li>
+<li><strong>Check the source.</strong> Under the curve, a line names the station, how far away it is and the provider, for example NOAA CO-OPS. Open <strong>Tide table &amp; source</strong> for today’s highs and lows and the <strong>Datum</strong>: MLLW at NOAA stations; elsewhere, the datum the source uses, such as a station’s chart datum, or MSL for model estimates.</li>
+<li><strong>Pick feet or metres.</strong> Tap the gear for <strong>Settings</strong> and switch <strong>Tide height</strong> between <strong>ft</strong> and <strong>m</strong>. SeaWindow shows heights to one decimal place.</li>
+</ol>
+<p>Today’s tide, conditions and one favorite coast are free. SeaWindow Pro adds the ten-day forecast and, from the Forecast tab’s menu, yearly <strong>Tide tables</strong>.</p>
+
+<h2 id="limits">What a tide chart cannot tell you</h2>
+<ul>
+<li><strong>Weather.</strong> Predictions are astronomical. NOAA notes that onshore wind can pile water up, offshore wind can exaggerate low tides, and low pressure can raise levels above the prediction.</li>
+<li><strong>Your exact spot.</strong> Bays, harbours and rivers can differ from the nearest station. SeaWindow shows the station distance so you can judge this.</li>
+<li><strong>Model estimates.</strong> Where no station is near, SeaWindow estimates the tide from a global model and says so. Times and heights can be off, especially inside bays and rivers.</li>
+<li><strong>Safety.</strong> A tide chart is not a navigation or safety tool, and neither is SeaWindow. Check official marine forecasts, warnings and local conditions before going on or near the water.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<section class="faq" id="faq-list">
+<details><summary>What does a negative tide mean?</summary><div class="a"><p>The water is predicted to fall below the datum. With NOAA’s MLLW datum, a reading such as −1.8 ft means 1.8 ft lower than the average of the lowest daily tides.</p></div></details>
+<details><summary>Why are the two high tides different heights?</summary><div class="a"><p>Many coasts, including the U.S. West Coast, have a mixed semidiurnal tide, where the two daily highs and lows differ in height.</p></div></details>
+<details><summary>Why doesn’t the water at my beach match the chart?</summary><div class="a"><p>The chart predicts the tide at one station without weather. Distance from the station, local geography, wind and air pressure all change what you see.</p></div></details>
+<details><summary>Is a tide chart the same as a tide table?</summary><div class="a"><p>A tide table lists the times and heights of highs and lows. The curve joins those points. NOAA reserves “tide chart” for maps of a bay, but most apps use it for the curve.</p></div></details>
+<details><summary>How do I switch SeaWindow between feet and metres?</summary><div class="a"><p>Open Settings with the gear button and choose ft or m under Tide height.</p></div></details>
+</section>
+<!--cta-->
+
+<h2 id="sources">Sources</h2>
+<ul class="sources">
+<li>NOAA CO-OPS, <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9414290">tide predictions for San Francisco 9414290</a> and its <a href="https://tidesandcurrents.noaa.gov/datums.html?id=9414290">datums</a></li>
+<li>NOAA CO-OPS, <a href="https://tidesandcurrents.noaa.gov/datum_options.html">tidal datum definitions</a> and <a href="https://tidesandcurrents.noaa.gov/faq.html">FAQ</a></li>
+<li>NOAA Ocean Service, <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides05_lunarday.html">the lunar day</a>, <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides07_cycles.html">types of tidal cycles</a> and <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides08_othereffects.html">other effects on tides</a></li>
+<li>NOAA Ocean Service, <a href="https://oceanservice.noaa.gov/facts/springtide.html">spring and neap tides</a></li>
+<li>US Naval Observatory, <a href="https://aa.usno.navy.mil/data/MoonPhases">moon phases</a></li>
+</ul>
+<p class="muted">Spotted an error or a number that looks wrong? <a href="mailto:atabany.apps@gmail.com?subject=SeaWindow%20tide%20chart%20guide">Email the developer</a> or see <a href="support.html">SeaWindow support</a>.</p>
+<!--related-->

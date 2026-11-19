@@ -1,14 +1,23 @@
 # SeaWindow: Tide Times & Charts
 
-> Official app website by Mohamed Elatabany.
+> Official website of SeaWindow, an iPhone app for tide times, tide charts and coastal weather, made by independent developer Mohamed Elatabany.
 
-SeaWindow shows tide predictions, coastal weather, sun and moon times on iPhone with iOS 18 or later. Today’s view and one favorite coast are free; Pro adds a ten-day outlook and additional tools. Data coverage varies; modeled water levels are labelled estimates. It is a planning aid, not a navigation or safety tool.
+SeaWindow is an iPhone app (iOS 18 or later) that shows tide times and tide charts, hourly coastal weather, waves and swell, sea temperature, and sun and moon times for coasts worldwide. US tides come from NOAA CO-OPS predictions at more than 3,000 stations. Elsewhere SeaWindow uses open international tide-station data, calculated on the iPhone, or WorldTides predictions, and where no station is near, the EOT20 global tide model, labelled as an estimate. Weather comes from Apple Weather. Today's forecast and charts, a tide widget and one favorite coast are free; optional SeaWindow Pro adds ten days ahead, every chart for every day, annual tide tables, unlimited favorites, alerts, offline forecasts, all widgets, Live Activities and Apple Watch. No account, no ads, no tracking. It is a planning aid, not a navigation or safety tool.
 
-Canonical App Store listing: https://apps.apple.com/app/id6811683172
+App Store: https://apps.apple.com/app/id6811683172
 
-- [SeaWindow: Tide Times, Charts and Coastal Weather](https://atabany.github.io/seawindow-site/)
-- [SeaWindow Support and Contact](https://atabany.github.io/seawindow-site/support.html)
-- [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html)
-- [How to Read a Tide Chart: Highs, Lows and Datum](https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html)
+## Pages
 
-This reference file is supplementary navigation; it does not establish search ranking or AI recommendations.
+- [About SeaWindow and Its Developer](https://atabany.github.io/seawindow-site/about.html): SeaWindow is an iPhone tide app by independent developer Mohamed Elatabany: how it and this site are made, where its data comes from, and how to reach me.
+- [Tide Guides: Read Tide Charts and Plan Around the Tide](https://atabany.github.io/seawindow-site/guides.html): Free, sourced tide guides from SeaWindow: read a tide chart, estimate tide height, and plan fishing, surfing, tide pooling and beach walks around the tide.
+- [SeaWindow: Tide Times, Tide Charts & Weather for iPhone](https://atabany.github.io/seawindow-site/): Tide times and tide charts for your coast, with wind, waves, sea temperature, sunrise and moon phase. NOAA tides in the US, coasts worldwide. Free on iPhone.
+- [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html): How SeaWindow handles your places, location, journal and purchases: no account, no ads, no tracking. Which forecast services receive a coast's coordinates.
+- [SeaWindow Support: Help, Contact and Purchases](https://atabany.github.io/seawindow-site/support.html): Get help with SeaWindow: estimated tides, missing weather or waves, location, alerts, SeaWindow Pro and restoring a purchase. Email the developer.
+
+## Tools
+
+- [Tide height calculator](https://atabany.github.io/seawindow-site/tide-calculator.html): Free tide height calculator: enter a high and low tide to get the water level at any time, or when the tide reaches a height. Rule of twelfths vs cosine.
+
+## Guides
+
+- [How to read a tide chart](https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html): Read a tide chart in minutes: time, height, highs and lows, and the datum behind each number, with a worked NOAA example and the steps in SeaWindow.

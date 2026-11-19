@@ -1,0 +1,111 @@
+<!--page
+{"kind": "tool", "order": 1, "title": "Tide Height Calculator: Rule of Twelfths and Cosine Method", "description": "Free tide height calculator: enter a high and low tide to get the water level at any time, or when the tide reaches a height. Rule of twelfths vs cosine.", "headline": "Tide height calculator", "eyebrow": "Free tool", "crumb": "Tide height calculator", "blurb": "Water height at any time between a high and a low, or when the tide reaches the height you need. Rule of twelfths and cosine compared.", "more": "Open the calculator", "campaign": "seawindow-tool-tide-calc", "published": "2026-11-19", "modified": "2026-11-19", "js": ["assets/tide-calc.js"], "related": ["how-to-read-a-tide-chart.html"], "summary": "Tide height calculator by SeaWindow. Rule of twelfths: the tide moves 1, 2, 3, 3, 2 and 1 twelfths of its range in the six equal parts between a low and a high (cumulative 1, 3, 6, 9, 11, 12 twelfths). The cosine method gives fraction = (1 − cos(π·t/T))/2. Worked example, NOAA station 9414290 San Francisco, 5 Nov 2026: low 0.862 ft at 1:47 AM, high 5.913 ft at 8:35 AM (MLLW); at 5:00 AM the cosine method gives 3.17 ft, the rule of twelfths 3.18 ft, NOAA's hourly prediction 3.06 ft. Estimates exclude weather; not for navigation."}
+-->
+<p class="answer">To estimate the tide between a low and a high, split the time between them into six equal parts. By the <strong>rule of twelfths</strong>, the water moves 1, 2, 3, 3, 2 and 1 twelfths of the tidal range in those six parts. Enter your two tides below to get the height at any time, or the time the water reaches a height, worked out both by the rule of twelfths and by the smoother cosine curve.</p>
+
+<form class="tool" id="calc" novalidate>
+  <fieldset>
+    <legend>1. Two consecutive tides from a tide table</legend>
+    <div class="fields">
+      <div class="field"><label for="t1">First tide: time</label><input id="t1" name="t1" type="time" value="01:47" required></div>
+      <div class="field"><label for="h1">First tide: height</label><input id="h1" name="h1" type="number" step="0.01" value="0.86" inputmode="decimal" required></div>
+      <div class="field"><label for="t2">Next tide: time</label><input id="t2" name="t2" type="time" value="08:35" required></div>
+      <div class="field"><label for="h2">Next tide: height</label><input id="h2" name="h2" type="number" step="0.01" value="5.91" inputmode="decimal" required></div>
+    </div>
+    <p class="fine" style="margin:10px 0 0">If the next tide is after midnight, enter its time as it appears; the calculator moves it to the next day. Heights can be negative.</p>
+  </fieldset>
+  <fieldset>
+    <legend>2. What do you want to know?</legend>
+    <div class="seg" role="group" aria-label="Question">
+      <button type="button" data-mode="height" aria-pressed="true">Height at a time</button>
+      <button type="button" data-mode="time" aria-pressed="false">Time for a height</button>
+    </div>
+    <div class="fields" style="margin-top:14px">
+      <div class="field" data-for="height"><label for="tq">Time</label><input id="tq" name="tq" type="time" value="05:00"></div>
+      <div class="field" data-for="time" hidden><label for="hq">Height</label><input id="hq" name="hq" type="number" step="0.01" value="3" inputmode="decimal"></div>
+      <div class="field"><label for="unit">Units</label><select id="unit" name="unit"><option value="ft">feet (ft)</option><option value="m">metres (m)</option></select></div>
+    </div>
+  </fieldset>
+  <div class="result" id="result" aria-live="polite">
+    <p class="big" id="big">3.17 <small>ft</small></p>
+    <p id="detail">Cosine curve at 5:00 AM. Rule of twelfths: 3.18 ft. Range 5.05 ft over 6 h 48 min, rising.</p>
+  </div>
+  <div class="tool-chart"><svg id="chart" class="tide-svg" viewBox="0 0 680 300" role="img" aria-label="Tide curve between the two tides, cosine method and rule of twelfths"></svg></div>
+  <div class="table-wrap" id="hourly-wrap"></div>
+  <div class="tool-actions"><button class="btn primary" type="button" id="share">Copy link to this result</button><button class="btn" type="button" id="reset">Reset example</button></div>
+  <noscript><p class="note">The calculator needs JavaScript. The reference table below works without it.</p></noscript>
+</form>
+
+<!--cta-->
+
+<div class="toc"><p>On this page</p><ol><li><a href="#how">How the rule of twelfths works</a></li><li><a href="#table">Reference table</a></li><li><a href="#cosine">The cosine method</a></li><li><a href="#example">Worked example against NOAA</a></li><li><a href="#limits">When the estimate goes wrong</a></li><li><a href="#faq">FAQ</a></li></ol></div>
+
+<h2 id="how">How the rule of twelfths works</h2>
+<p>A tide does not rise at a steady speed. It starts slowly after low water, runs fastest around mid-tide, and slows again as it approaches high water. The rule of twelfths turns that shape into numbers you can work out in your head.</p>
+<ol class="steps">
+<li><strong>Find the range.</strong> Subtract the low-tide height from the high-tide height. A low of 0.9 ft and a high of 5.9 ft give a range of 5.0 ft.</li>
+<li><strong>Find the tide’s “hour”.</strong> Divide the time between the two tides by six. The rule is named for six-hour tides, but most tides last a little more: 6 h 48 min gives six parts of 68 minutes.</li>
+<li><strong>Add the twelfths.</strong> After one part the water has moved 1/12 of the range, after two parts 3/12, after three 6/12 (half), after four 9/12, after five 11/12, and after six the full range.</li>
+<li><strong>Add the result to the starting height</strong> on a rising tide, or subtract it on a falling tide.</li>
+</ol>
+<p>Halfway between low and high, the water is at half the range. That is the one moment the rule and the real curve always agree.</p>
+
+<h2 id="table">Reference table</h2>
+<p>Share of the tidal range the water has covered after each sixth of the time between a low and a high (or a high and a low). The cosine column is the smooth curve the calculator also uses.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Part of the tide</th><th>Moves in this part</th><th>Covered so far (twelfths)</th><th>Covered so far (cosine)</th></tr></thead>
+<tbody>
+<tr><td>1st sixth</td><td>1/12</td><td>1/12 (8%)</td><td>6.7%</td></tr>
+<tr><td>2nd sixth</td><td>2/12</td><td>3/12 (25%)</td><td>25.0%</td></tr>
+<tr><td>3rd sixth</td><td>3/12</td><td>6/12 (50%)</td><td>50.0%</td></tr>
+<tr><td>4th sixth</td><td>3/12</td><td>9/12 (75%)</td><td>75.0%</td></tr>
+<tr><td>5th sixth</td><td>2/12</td><td>11/12 (92%)</td><td>93.3%</td></tr>
+<tr><td>6th sixth</td><td>1/12</td><td>12/12 (100%)</td><td>100%</td></tr>
+</tbody></table></div>
+<p>The two methods match exactly after two, three and four sixths of the time, when the water has covered a quarter, half and three quarters of the range. In between they differ by at most about 2.6% of the range, early in the first sixth and late in the last.</p>
+
+<h2 id="cosine">The cosine method</h2>
+<p>Between a low and a high, the tide curve is close to half of a cosine wave. If the tide takes <em>T</em> minutes to go from one extreme to the next, the share of the range covered after <em>t</em> minutes is:</p>
+<p style="font-size:19px;text-align:center"><strong>fraction = (1 − cos(π × t ÷ T)) ÷ 2</strong></p>
+<p>Multiply the fraction by the range and add it to the first tide’s height (or subtract it on a falling tide). To find when the water reaches a height <em>h</em>, turn the formula round: t = T × arccos(1 − 2 × (h − first height) ÷ (second height − first height)) ÷ π. The calculator does both, for the cosine curve and for the rule of twelfths.</p>
+
+<h2 id="example">Worked example against NOAA</h2>
+<p>NOAA’s predictions for San Francisco (Golden Gate, station 9414290) on 5 November 2026 give a low of 0.862 ft at 1:47 AM and a high of 5.913 ft at 8:35 AM, above MLLW. That is a range of 5.05 ft over 6 hours 48 minutes. Here is how both methods compare with NOAA’s own hourly predictions for the same station, retrieved from the NOAA CO-OPS data service on 19 November 2026:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Time</th><th>Cosine method</th><th>Rule of twelfths</th><th>NOAA hourly prediction</th></tr></thead>
+<tbody>
+<tr><td>3:00 AM</td><td>1.25 ft</td><td>1.34 ft</td><td>1.24 ft</td></tr>
+<tr><td>4:00 AM</td><td>2.07 ft</td><td>2.09 ft</td><td>2.02 ft</td></tr>
+<tr><td>5:00 AM</td><td>3.17 ft</td><td>3.18 ft</td><td>3.06 ft</td></tr>
+<tr><td>6:00 AM</td><td>4.32 ft</td><td>4.30 ft</td><td>4.16 ft</td></tr>
+<tr><td>7:00 AM</td><td>5.27 ft</td><td>5.16 ft</td><td>5.16 ft</td></tr>
+<tr><td>8:00 AM</td><td>5.82 ft</td><td>5.70 ft</td><td>5.80 ft</td></tr>
+</tbody></table></div>
+<p>Both estimates land within about 0.16 ft (5 cm) of NOAA’s hourly figures on this tide. NOAA computes its hourly heights from the full set of tidal constituents for the station, so its curve is not exactly symmetrical; the estimates are. Results like this are typical of a simple semidiurnal tide on the open coast, and can be much worse elsewhere.</p>
+
+<h2 id="limits">When the estimate goes wrong</h2>
+<ul>
+<li><strong>Unusual tide shapes.</strong> Some places have a double high water or a long stand, such as Southampton in England, or tides distorted in shallow estuaries. Neither method fits them.</li>
+<li><strong>Mixed and diurnal tides.</strong> On coasts with one tide a day, or two very unequal tides, use the actual high and low on either side of your time, not a nominal six hours.</li>
+<li><strong>Weather.</strong> Wind, air pressure and river flow move the water away from any prediction, by a foot or more in a storm. The estimate only interpolates the prediction you entered.</li>
+<li><strong>The wrong station.</strong> The result is only as good as the two tides you enter. A station far from your beach can be off by many minutes.</li>
+</ul>
+<p>For depth under a boat, use official charts and the method your training or pilot book uses for that harbour. This calculator is a planning aid, not a navigation tool.</p>
+
+<h2 id="faq">FAQ</h2>
+<section class="faq" id="faq-list">
+<details><summary>What is the rule of twelfths?</summary><div class="a"><p>A rule of thumb for estimating tide height between a low and a high. Divide the time between them into six equal parts; the water moves 1/12, 2/12, 3/12, 3/12, 2/12 and 1/12 of the tidal range in those parts, so it is a quarter of the way after two parts and halfway after three.</p></div></details>
+<details><summary>Is the rule of twelfths accurate?</summary><div class="a"><p>On a regular semidiurnal tide it is usually within a few percent of the range. In the San Francisco example on this page it was within 0.16 ft of NOAA’s hourly predictions. It fails where the tide has an unusual shape, such as a double high water, and it never includes weather.</p></div></details>
+<details><summary>What is the difference between the rule of twelfths and the cosine method?</summary><div class="a"><p>The rule of twelfths is a stepwise approximation you can do in your head. The cosine method uses the smooth half-cosine shape of a tide between two extremes. They agree exactly after two, three and four sixths of the time and differ by at most about 2.6% of the range.</p></div></details>
+<details><summary>Can I use this calculator for any tide station?</summary><div class="a"><p>Yes. Enter two consecutive tides (a high and a low) from any tide table, in feet or metres. Use the station closest to where you will be, and remember that both methods assume a regular tide shape.</p></div></details>
+<details><summary>Does the calculator store my data?</summary><div class="a"><p>No. Everything is calculated in your browser. The share link only puts your numbers in the web address.</p></div></details>
+</section>
+
+<h2 id="sources">Sources</h2>
+<ul class="sources">
+<li>NOAA CO-OPS, <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9414290">tide predictions for San Francisco 9414290</a> (highs, lows and hourly heights for 5 November 2026)</li>
+<li>NOAA Ocean Service, <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides05_lunarday.html">the lunar day</a> and <a href="https://oceanservice.noaa.gov/education/tutorial_tides/tides07_cycles.html">types of tidal cycles</a></li>
+<li>NOAA CO-OPS, <a href="https://tidesandcurrents.noaa.gov/datum_options.html">tidal datum definitions</a></li>
+</ul>
+<p class="muted">Spotted an error? <a href="mailto:atabany.apps@gmail.com?subject=SeaWindow%20tide%20calculator">Email the developer</a>.</p>
+<!--related-->

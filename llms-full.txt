@@ -1,22 +1,84 @@
 # SeaWindow: Tide Times & Charts
 
-> Official app website by Mohamed Elatabany.
+> Official website of SeaWindow, an iPhone app for tide times, tide charts and coastal weather, made by independent developer Mohamed Elatabany.
 
-SeaWindow shows tide predictions, coastal weather, sun and moon times on iPhone with iOS 18 or later. Today’s view and one favorite coast are free; Pro adds a ten-day outlook and additional tools. Data coverage varies; modeled water levels are labelled estimates. It is a planning aid, not a navigation or safety tool.
+SeaWindow is an iPhone app (iOS 18 or later) that shows tide times and tide charts, hourly coastal weather, waves and swell, sea temperature, and sun and moon times for coasts worldwide. US tides come from NOAA CO-OPS predictions at more than 3,000 stations. Elsewhere SeaWindow uses open international tide-station data, calculated on the iPhone, or WorldTides predictions, and where no station is near, the EOT20 global tide model, labelled as an estimate. Weather comes from Apple Weather. Today's forecast and charts, a tide widget and one favorite coast are free; optional SeaWindow Pro adds ten days ahead, every chart for every day, annual tide tables, unlimited favorites, alerts, offline forecasts, all widgets, Live Activities and Apple Watch. No account, no ads, no tracking. It is a planning aid, not a navigation or safety tool.
 
-Canonical App Store listing: https://apps.apple.com/app/id6811683172
+App Store: https://apps.apple.com/app/id6811683172
 
-- [SeaWindow: Tide Times, Charts and Coastal Weather](https://atabany.github.io/seawindow-site/)
-- [SeaWindow Support and Contact](https://atabany.github.io/seawindow-site/support.html)
-- [SeaWindow Privacy Policy](https://atabany.github.io/seawindow-site/privacy.html)
-- [How to Read a Tide Chart: Highs, Lows and Datum](https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html)
+## Pages
+## About SeaWindow
 
-This reference file is supplementary navigation; it does not establish search ranking or AI recommendations.
+SeaWindow is made by one independent developer, Mohamed Elatabany. The app has no account and no advertising. Features listed on this site are checked against the app's source code and the live App Store listing. Prices are shown in the app and on the App Store, not on this website, because they vary by country.
 
-## Guides
+## SeaWindow
 
-### How to read a tide chart
+https://atabany.github.io/seawindow-site/
 
-https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html (updated 2026-11-04)
+Home page: what SeaWindow shows, free and Pro features, data sources and FAQ.
 
-A tide chart is a curve of predicted water height over time: peaks are high tides, dips are low tides, and every height is measured from a datum (MLLW at NOAA stations in the US). Worked example: NOAA station 9414290, San Francisco (Golden Gate), 5 November 2026: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM (MLLW); mean sea level is 3.12 ft above MLLW there. In SeaWindow the Today tab’s Tides card shows the water level now, Rising or Falling, the next high and low, the station, its distance, the provider and, under “Tide table & source”, the datum. Predictions exclude weather; SeaWindow is a planning aid, not a navigation or safety tool.
+Q: Is SeaWindow free?
+A: Yes. SeaWindow is free to download and shows today’s tide curve, the next high and low, today’s weather and charts, sun and moon times, one favorite coast and a current-tide widget at no cost. SeaWindow Pro is an optional weekly, monthly or yearly subscription that adds ten days ahead, annual tide tables, alerts, offline forecasts, all widgets and Apple Watch.
+
+Q: Does SeaWindow work outside the United States?
+A: Yes. In the US it uses NOAA predictions. Elsewhere it calculates tides on the iPhone from open international tide-station data or uses WorldTides predictions, and where no station is near, it uses the EOT20 global tide model and labels the result as an estimate. Places far up an estuary or inland have no tide data.
+
+Q: Where do SeaWindow’s tide times come from?
+A: US tide times are NOAA CO-OPS predictions for the station shown on screen. Outside the US they come from open tide-station constants calculated on the device, from WorldTides, or from the EOT20 model. The app shows the station, its distance, the provider and the datum for every coast.
+
+Q: Does SeaWindow have widgets and an Apple Watch app?
+A: Yes. The current-tide widget is free. SeaWindow Pro unlocks the other widgets (tide chart, tide table, wind, weather, sun, moon and a large dashboard), Live Activities and the Apple Watch app with complications.
+
+Q: Can I use SeaWindow without a signal?
+A: SeaWindow keeps the last forecast it loaded. With Pro you can download an offline forecast pack for a favorite coast before you head out; expired packs stay clearly labelled until you replace them.
+
+Q: Do I need an account? Does SeaWindow track me?
+A: No account is needed, and there are no ads, analytics or tracking. Your places and journal stay on your iPhone. Location is optional and only used to suggest a nearby coast.
+
+Q: Can I use SeaWindow for navigation?
+A: No. SeaWindow is a planning aid. Tide predictions do not include storm surge, wind set-up or river flow. For navigation and safety, use official charts, marine forecasts and warnings.
+
+Q: Is SeaWindow available on iPad or Android?
+A: SeaWindow is made for iPhone with iOS 18 or later, with an Apple Watch app. There is no Android version.
+
+## Tide height calculator
+
+https://atabany.github.io/seawindow-site/tide-calculator.html
+
+Tide height calculator by SeaWindow. Rule of twelfths: the tide moves 1, 2, 3, 3, 2 and 1 twelfths of its range in the six equal parts between a low and a high (cumulative 1, 3, 6, 9, 11, 12 twelfths). The cosine method gives fraction = (1 − cos(π·t/T))/2. Worked example, NOAA station 9414290 San Francisco, 5 Nov 2026: low 0.862 ft at 1:47 AM, high 5.913 ft at 8:35 AM (MLLW); at 5:00 AM the cosine method gives 3.17 ft, the rule of twelfths 3.18 ft, NOAA's hourly prediction 3.06 ft. Estimates exclude weather; not for navigation.
+
+Q: What is the rule of twelfths?
+A: A rule of thumb for estimating tide height between a low and a high. Divide the time between them into six equal parts; the water moves 1/12, 2/12, 3/12, 3/12, 2/12 and 1/12 of the tidal range in those parts, so it is a quarter of the way after two parts and halfway after three.
+
+Q: Is the rule of twelfths accurate?
+A: On a regular semidiurnal tide it is usually within a few percent of the range. In the San Francisco example on this page it was within 0.16 ft of NOAA’s hourly predictions. It fails where the tide has an unusual shape, such as a double high water, and it never includes weather.
+
+Q: What is the difference between the rule of twelfths and the cosine method?
+A: The rule of twelfths is a stepwise approximation you can do in your head. The cosine method uses the smooth half-cosine shape of a tide between two extremes. They agree exactly after two, three and four sixths of the time and differ by at most about 2.6% of the range.
+
+Q: Can I use this calculator for any tide station?
+A: Yes. Enter two consecutive tides (a high and a low) from any tide table, in feet or metres. Use the station closest to where you will be, and remember that both methods assume a regular tide shape.
+
+Q: Does the calculator store my data?
+A: No. Everything is calculated in your browser. The share link only puts your numbers in the web address.
+
+## How to read a tide chart
+
+https://atabany.github.io/seawindow-site/how-to-read-a-tide-chart.html
+
+A tide chart is a curve of predicted water height over time: peaks are high tides, dips are low tides, and every height is measured from a datum (MLLW at NOAA stations in the US). Worked example: NOAA station 9414290, San Francisco (Golden Gate), 5 November 2026: low 0.9 ft at 1:47 AM, high 5.9 ft at 8:35 AM, low 0.7 ft at 2:48 PM, high 4.7 ft at 9:03 PM (MLLW); mean sea level is 3.12 ft above MLLW there.
+
+Q: What does a negative tide mean?
+A: The water is predicted to fall below the datum. With NOAA’s MLLW datum, a reading such as −1.8 ft means 1.8 ft lower than the average of the lowest daily tides.
+
+Q: Why are the two high tides different heights?
+A: Many coasts, including the U.S. West Coast, have a mixed semidiurnal tide, where the two daily highs and lows differ in height.
+
+Q: Why doesn’t the water at my beach match the chart?
+A: The chart predicts the tide at one station without weather. Distance from the station, local geography, wind and air pressure all change what you see.
+
+Q: Is a tide chart the same as a tide table?
+A: A tide table lists the times and heights of highs and lows. The curve joins those points. NOAA reserves “tide chart” for maps of a bay, but most apps use it for the curve.
+
+Q: How do I switch SeaWindow between feet and metres?
+A: Open Settings with the gear button and choose ft or m under Tide height.
