@@ -40,6 +40,8 @@ python3 -I _ops/validate.py      # must print OK before every push
   path here. `_ops/connect_domain.sh` is the script that made the move.
 - Google Search Console: Domain property `seawindowtides.com` (verified by DNS TXT, never by authorising
   Google into Cloudflare), sitemap submitted.
+- Bing Webmaster Tools: verified by `BingSiteAuth.xml` in the root (same account ID as the owner's other
+  sites; keep it published), sitemap submitted.
 - IndexNow (Bing, Yandex and others): after a push that adds or changes pages run
   `sh _ops/indexnow.sh` (every sitemap URL) or pass the changed URLs. The key file in the root
   (`<key>.txt`) must stay published.
