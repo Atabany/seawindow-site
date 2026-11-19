@@ -1,6 +1,7 @@
 # SeaWindow website
 
-Static site for the SeaWindow iPhone app, published with GitHub Pages from `main`. Everything in this
+Static site for the SeaWindow iPhone app at https://seawindowtides.com/, published with GitHub Pages
+from `main`. Everything in this
 repository is public; no app source, keys or QA data belong here. The site's state and history are
 written in the app repository's `docs/HANDOFF.md` and `docs/KB.md` ("Website").
 
@@ -16,7 +17,7 @@ python3 -I _ops/validate.py      # must print OK before every push
   ≤ 160, kind `home|guide|tool|hub|page|404`, `campaign` tag, dates, `headline`, `blurb`, `summary`).
   Never edit the built root `.html` files by hand.
 - Facts shared by every page: `_src/site.json` (`base`, App Store id, provider token, facts block,
-  rating). When the domain changes, change `base` and rebuild.
+  rating). `base` is `https://seawindowtides.com/`.
 - Placeholders: `<!--cta-->`, `<!--cta:hero-->`, `<!--cta:band-->`, `<!--guides-->`, `<!--tools-->`,
   `<!--related-->`, `<!--rating-->`, `<!--facts-->`.
 - App Store links are generated in Apple's campaign format
@@ -29,3 +30,16 @@ python3 -I _ops/validate.py      # must print OK before every push
   Sources section, FAQ, `<!--cta-->` and `<!--related-->`. Facts about the app come from its source code.
 - Never print prices, invented ratings or reviews. Show a rating only with its real count
   (`rating` in `site.json`).
+
+## Domain and search engines
+
+- `seawindowtides.com` is registered at Cloudflare (bought 2026-11-19, auto-renew). DNS is DNS-only
+  (grey cloud): 4×A and 4×AAAA to GitHub Pages, `www` CNAME `atabany.github.io`, plus `v=spf1 -all`,
+  a reject DMARC record (the domain sends no mail) and the Google Search Console TXT. `CNAME` in this repo
+  holds the domain; HTTPS is enforced. Old `atabany.github.io/seawindow-site/...` URLs 301 to the same
+  path here. `_ops/connect_domain.sh` is the script that made the move.
+- Google Search Console: Domain property `seawindowtides.com` (verified by DNS TXT, never by authorising
+  Google into Cloudflare), sitemap submitted.
+- IndexNow (Bing, Yandex and others): after a push that adds or changes pages run
+  `sh _ops/indexnow.sh` (every sitemap URL) or pass the changed URLs. The key file in the root
+  (`<key>.txt`) must stay published.
